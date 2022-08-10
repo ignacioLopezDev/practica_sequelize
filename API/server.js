@@ -18,6 +18,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", routes);
 
+// error middleware -> https://expressjs.com/es/guide/error-handling.html
+app.use((err, req, res, next) => {
+  console.log("ERROR");
+  console.log(err);
+  res.status(500).send(err.message);
+});
+
 //Port
 db.sync({force: false
 }).then(() => {
