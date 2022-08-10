@@ -26,9 +26,10 @@ app.use((err, req, res, next) => {
 });
 
 //Port
-db.sync({force: false
-}).then(() => {
-  app.listen(3000, () => {
-    console.log("listen on port 3000");
-  });
-});
+db.sync({ force: false })
+  .then(() => {
+    app.listen(3000, () => {
+      console.log("listen on port 3000");
+    });
+  })
+  .catch(console.error);
